@@ -14,7 +14,6 @@ const Board = () => {
     const initialSquareValues: Array<string> = Array(9).fill("")
     const initialHistory: History = {historyArray: [initialSquareValues], historyTrackingIndex: 0}
     const noWinner: string = ""
-    const initialResetBoardButtonColor = ""
 
     const [squareValuesArray, setSquareValuesArray] = useState(initialSquareValues)
     const [history, setHistory] = useState(initialHistory)
@@ -50,7 +49,8 @@ const Board = () => {
         if(winner){
             console.log("Game over!")
             setSquareValuesArray(initialSquareValues)
-            return
+            setWinner(noWinner)
+	    return
         }
 
         //Update squares and next player state
